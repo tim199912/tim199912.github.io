@@ -14,8 +14,8 @@
             text-align: center;
             background-color: #e0e0e0;
             position: relative;
-            height: 100vh; /* Adjusted for better viewing */
-            overflow: hidden;
+            height: 1500px;
+            overflow: hidden; /* Ensures that the image does not overflow */
         }
         .cover img {
             width: 100%;
@@ -25,8 +25,8 @@
             left: 0;
         }
         .cover h1, .cover p {
-            position: relative; /* Adjusted for better text positioning */
-            color: white;
+            position: fixed;
+            color: white; /* Makes the text visible over the image */
         }
         .cover h1 {
             font-size: 3em;
@@ -41,7 +41,6 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px; /* Added margin for spacing */
         }
         th, td {
             border: 1px solid black;
@@ -54,14 +53,16 @@
         .footer {
             text-align: center;
             background-color: #e0e0e0;
-            padding: 20px 0; /* Adjusted padding */
+            position: relative;
+            height: auto;
+            overflow: hidden; /* Ensures that the image does not overflow */
         }
         .footer p {
-            margin: 10px 0;
+            margin: 20px 0;
         }
         .line-icon {
             width: 40px;
-            height: auto;
+            height: auto; /* 自动按比例调整高度 */
         }
         .btn {
             display: inline-block;
@@ -93,8 +94,70 @@
                 <th>星期六</th>
             </tr>
         </thead>
-        <tbody id="table-body">
-            <!-- JavaScript will generate rows here -->
+        <tbody>
+            <!-- 使用 JavaScript 迴圈生成 6 行，每行 8 列 -->
+            <!-- JavaScript 部分 -->
+            <script>
+                const tue = 4;
+                const wed = 2;
+                const thu = 3;
+                const fri = 2;
+                const sat = 1;
+
+                for (let i = 1; i <= 1; i++) {
+                    document.write("<tr>");
+                    for (let j = 2; j <= 6; j++) {
+                        document.write("<td>");
+                        if (j == 2) {
+                            for (let k = 1; k <= tue; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="tue1300.html" class="btn">13:00~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="tue1730.html" class="btn">17:30~18:45課程資訊</a><br><br>`);
+                                } else if (k == 3) {
+                                    document.write(`<a href="tue1845.html" class="btn">18:45~20:00課程資訊</a><br><br>`);
+                                } else {
+                                    document.write(`<a href="tue2000.html" class="btn">20:00~21:15課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 3) {
+                            for (let k = 1; k <= wed; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="wed1930.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="wed1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 4) {
+                            for (let k = 1; k <= thu; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="thu1330.html" target="view_window" class="btn">13:30~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="thu1800.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
+                                } else if (k == 3) {
+                                    document.write(`<a href="thu1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 5) {
+                            for (let k = 1; k <= fri; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="fri1330.html" class="btn">13:30~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="fri1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 6) {
+                            for (let k = 1; k <= sat; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="sat1500.html" class="btn">15:00~16:30課程資訊</a><br><br>`);
+                                }
+                            }
+                        }
+                        document.write("</td>");
+                    }
+                    document.write("</tr>");
+                }
+            </script>
         </tbody>
     </table>
     <div class="footer">
@@ -102,38 +165,5 @@
         <img class="line-icon" src="LINE_logo.svg.png" alt="LINE Logo">
         <img class="line-icon" src="fb.png" alt="FB Logo">
     </div>
-
-    <script>
-        const tue = ["13:00~15:00課程資訊", "17:30~18:45課程資訊", "18:45~20:00課程資訊", "20:00~21:15課程資訊"];
-        const wed = ["18:00~19:30課程資訊", "19:30~21:00課程資訊"];
-        const thu = ["13:30~15:00課程資訊", "18:00~19:30課程資訊", "19:30~21:00課程資訊"];
-        const fri = ["13:30~15:00課程資訊", "19:30~21:00課程資訊"];
-        const sat = ["15:00~16:30課程資訊"];
-        const days = [tue, wed, thu, fri, sat];
-
-        const tableBody = document.getElementById("table-body");
-
-        for (let i = 0; i < 6; i++) { // Generate 6 rows
-            const row = document.createElement("tr");
-
-            for (let j = 0; j < days.length; j++) {
-                const cell = document.createElement("td");
-
-                days[j].forEach(course => {
-                    const link = document.createElement("a");
-                    link.href = `day${j + 2}.html`; // Dynamic href (adjust as needed)
-                    link.className = "btn";
-                    link.innerText = course;
-                    cell.appendChild(link);
-                    cell.appendChild(document.createElement("br"));
-                    cell.appendChild(document.createElement("br"));
-                });
-
-                row.appendChild(cell);
-            }
-
-            tableBody.appendChild(row);
-        }
-    </script>
 </body>
 </html>
