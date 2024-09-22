@@ -3,53 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Table Example</title>
+    <title>Full Image without Cropping</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        html, body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* 使頁面內容至少覆蓋整個視窗 */
         }
 
-        /* 主內容區域（不包含 footer） */
-        .content {
-            flex: 1; /* 使主內容區域擴展，將 footer 推到頁面底部 */
-            display: flex; /* 確保內容區域能夠顯示為 flex 盒子 */
-            flex-direction: column; /* 垂直排列 */
-            justify-content: center; /* 垂直置中內容 */
-        }
-
+        /* 封面區域 */
         .cover {
             position: relative;
-            height: 50vh; /* 調整封面的高度以適應不同螢幕 */
+            min-height: 100vh; /* 確保封面至少覆蓋一個視窗高度 */
             background-image: url('tsaiwang.png');
-            background-size: cover; /* 讓圖片完全覆蓋 */
-            background-position: center; /* 中心顯示圖片 */
-            overflow: hidden;
+            background-size: contain; /* 圖片保持完整顯示且不裁切 */
+            background-position: top center; /* 圖片頂部對齊視窗頂部 */
+            background-repeat: no-repeat;
+            background-color: #ffffff; /* 如果圖片沒有完全覆蓋，使用黑色背景 */
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* 垂直置中 */
+            justify-content: center;
             color: white;
             text-align: center;
         }
 
+        .cover h1, .cover h2 {
+            position: relative;
+            color: white;
+        }
+
         .cover h1 {
-            font-size: 3em; /* 調整標題字體大小 */
-            margin: 0;
+            font-size: 3em;
         }
 
         .cover h2 {
-            font-size: 2em; /* 調整按鈕字體大小 */
-            margin: 20px 0;
+            font-size: 2em;
+            margin-top: 20px;
         }
 
         .btn {
             display: inline-block;
-            padding: 12px 24px; /* 增加按鈕內邊距 */
+            padding: 12px 24px;
             background-color: #818992;
             color: white;
             border: none;
@@ -57,68 +55,48 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1.2em; /* 增加按鈕字體大小 */
+            font-size: 1.2em;
         }
 
-        .footer {
-            text-align: center;
-            background-color: #e0e0e0;
+        /* 其他內容區域 */
+        .content {
             padding: 20px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-
-        .line-icon {
-            width: 40px;
-            height: auto;
-            margin: 0 10px;
+            background-color: #f5f5f5;
+            flex: 1;
         }
 
         /* RWD樣式 */
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .cover h1 {
-                font-size: 2.5em; /* 中等螢幕標題大小 */
+                font-size: 2.5em;
             }
             .cover h2 {
-                font-size: 1.8em; /* 中等螢幕按鈕大小 */
+                font-size: 1.8em;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .cover h1 {
-                font-size: 2em; /* 小螢幕標題大小 */
+                font-size: 2em;
             }
             .cover h2 {
-                font-size: 1.5em; /* 小螢幕按鈕大小 */
+                font-size: 1.5em;
             }
             .btn {
-                padding: 10px 20px; /* 小螢幕按鈕內邊距 */
-                font-size: 1em; /* 小螢幕按鈕字體大小 */
-            }
-            .line-icon {
-                width: 30px;
+                padding: 10px 20px;
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- 主要內容區域 -->
-    <div class="content">
-        <div class="cover">
-            <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
-            <!-- 新增的按鈕 -->
-            <h2><a href="course.html" class="btn">查看課程資訊</a></h2>
-        </div>
+    <!-- 封面區域，允許滾動內容 -->
+    <div class="cover">
+        <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
+        <h2><a href="course.html" class="btn">查看課程資訊</a></h2>
     </div>
 
-    <!-- 頁面底部的 footer -->
-    <div class="footer">
-        <p>聯絡我們</p>
-        <img class="line-icon" src="LINE_logo.svg.png" alt="LINE Logo">
-        <img class="line-icon" src="fb.png" alt="FB Logo">
-    </div>
 
 </body>
 </html>
