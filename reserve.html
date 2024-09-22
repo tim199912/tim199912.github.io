@@ -47,7 +47,7 @@
 
         .btn {
             display: inline-block;
-            padding: 1px 1px;
+            padding: 3px 3px; /* 調整內邊距 */
             background-color: #55585b;
             color: white;
             border: none;
@@ -55,7 +55,10 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 0.1em;
+            font-size: 1.0em; /* 設定字體大小 */
+            width: auto; /* 自適應寬度 */
+            height: auto; /* 自適應高度 */
+            min-width: 50px; /* 可選：設定最小寬度 */
         }
 
         /* 其他內容區域 */
@@ -86,7 +89,7 @@
             left: 50%; 
             transform: translate(-50%, -50%); 
             width: 80%; /* Change to 90% for better responsiveness */
-            max-width: 200px; 
+            max-width: 100px; 
             background-color: rgba(132, 131, 131, 0.6); 
             border-collapse: collapse; 
         }
