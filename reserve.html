@@ -9,7 +9,16 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* 使頁面內容至少覆蓋整個視窗 */
         }
+
+        /* 主內容區域（不包含 footer） */
+        .content {
+            flex: 1; /* 使主內容區域擴展，將 footer 推到頁面底部 */
+        }
+
         .cover {
             text-align: center;
             background-color: #e0e0e0;
@@ -17,6 +26,7 @@
             height: 50vh; /* 調整封面的高度以適應不同螢幕 */
             overflow: hidden;
         }
+
         .cover img {
             width: 100%;
             height: auto;
@@ -24,44 +34,27 @@
             top: 0;
             left: 0;
         }
+
         .cover h1 {
-            font-size: 2.5em; /* 適應不同大小的螢幕 */
-            top: 20%;
-            width: 100%;
-            margin: 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            font-style: italic;
-            font-weight: bold;
+            font-size: 2.5em;
             position: relative;
+            margin: 0;
+            padding-top: 20%;
             color: white;
+            z-index: 1;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
+
+        .cover h2 {
+            font-size: 1.5em;
+            color: white;
+            margin: 20px 0;
+            z-index: 1;
+            position: relative;
         }
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: center;
-            font-size: 1em; /* 調整字體大小以適應不同螢幕 */
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .footer {
-            text-align: center;
-            background-color: #e0e0e0;
-            padding: 20px;
-        }
-        .line-icon {
-            width: 40px;
-            height: auto;
-        }
+
         .btn {
             display: inline-block;
             padding: 10px 20px;
-            margin: 5px 0;
             background-color: #818992;
             color: white;
             border: none;
@@ -69,139 +62,68 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
-            width: 100%; /* 讓按鈕自適應寬度 */
-            box-sizing: border-box;
         }
 
-        /* 媒體查詢部分 */
+        .footer {
+            text-align: center;
+            background-color: #e0e0e0;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .line-icon {
+            width: 40px;
+            height: auto;
+            margin: 0 10px;
+        }
+
+        /* RWD樣式 */
         @media (max-width: 768px) {
             .cover h1 {
-                font-size: 1.8em; /* 調整小螢幕的字體大小 */
+                font-size: 2em;
             }
-            th, td {
-                font-size: 0.9em; /* 調整表格字體 */
-                padding: 8px;
+            .cover h2 {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover h1 {
+                font-size: 1.5em;
+            }
+            .cover h2 {
+                font-size: 1em;
             }
             .btn {
                 padding: 8px 15px;
                 font-size: 0.9em;
             }
-        }
-
-        @media (max-width: 480px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-            th, td {
-                display: block;
-                text-align: right;
-                position: relative;
-                padding-left: 50%;
-                font-size: 0.8em;
-            }
-            th::before, td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 0;
-                width: 45%;
-                padding-left: 10px;
-                text-align: left;
-                font-weight: bold;
-                background-color: #f2f2f2;
-            }
-            .btn {
-                padding: 10px;
-                font-size: 1em;
+            .line-icon {
+                width: 30px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cover">
-        <img src="tsaiwang.png" alt="Cover Image">
-        <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
+
+    <!-- 主要內容區域 -->
+    <div class="content">
+        <div class="cover">
+            <img src="tsaiwang.png" alt="Cover Image">
+            <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
+            <!-- 新增的按鈕 -->
+            <h2><a href="course.html" class="btn">查看課程資訊</a></h2>
+        </div>
     </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th data-label="星期二">星期二</th>
-                <th data-label="星期三">星期三</th>
-                <th data-label="星期四">星期四</th>
-                <th data-label="星期五">星期五</th>
-                <th data-label="星期六">星期六</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- 使用 JavaScript 迴圈生成表格內容 -->
-            <script>
-                const tue = 4;
-                const wed = 2;
-                const thu = 3;
-                const fri = 2;
-                const sat = 1;
-
-                for (let i = 1; i <= 1; i++) {
-                    document.write("<tr>");
-                    for (let j = 2; j <= 6; j++) {
-                        document.write("<td data-label='星期" + (j + 1) + "'>");
-                        if (j == 2) {
-                            for (let k = 1; k <= tue; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Eew8oAsRSVpGj0s2HS21o18BXYAQRzEwNfWE7HNSleFK-w?e=pUXYzG" class="btn">13:00~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="tue1730.html" class="btn">17:30~18:45課程資訊</a><br><br>`);
-                                } else if (k == 3) {
-                                    document.write(`<a href="tue1845.html" class="btn">18:45~20:00課程資訊</a><br><br>`);
-                                } else {
-                                    document.write(`<a href="tue2000.html" class="btn">20:00~21:15課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 3) {
-                            for (let k = 1; k <= wed; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="wed1930.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="wed1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 4) {
-                            for (let k = 1; k <= thu; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="thu1330.html" target="view_window" class="btn">13:30~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="thu1800.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
-                                } else if (k == 3) {
-                                    document.write(`<a href="thu1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 5) {
-                            for (let k = 1; k <= fri; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="fri1330.html" class="btn">13:30~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="fri1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 6) {
-                            for (let k = 1; k <= sat; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="sat1500.html" class="btn">15:00~16:30課程資訊</a><br><br>`);
-                                }
-                            }
-                        }
-                        document.write("</td>");
-                    }
-                    document.write("</tr>");
-                }
-            </script>
-        </tbody>
-    </table>
-
+    <!-- 頁面底部的 footer -->
     <div class="footer">
         <p>聯絡我們</p>
         <img class="line-icon" src="LINE_logo.svg.png" alt="LINE Logo">
         <img class="line-icon" src="fb.png" alt="FB Logo">
     </div>
+
 </body>
 </html>
