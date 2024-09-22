@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Example</title>
+</head>
+<body>
+    <table id="course">
+        <thead>
+            <tr>
+                <th data-label="星期二">星期二</th>
+                <th data-label="星期三">星期三</th>
+                <th data-label="星期四">星期四</th>
+                <th data-label="星期五">星期五</th>
+                <th data-label="星期六">星期六</th>
+            </tr>
+        </thead>
+        <tbody>
+            <script>
+                const tue = 4;
+                const wed = 2;
+                const thu = 3;
+                const fri = 2;
+                const sat = 1;
+
+                for (let i = 1; i <= 1; i++) {
+                    document.write("<tr>");
+                    for (let j = 2; j <= 6; j++) {
+                        document.write("<td data-label='星期" + (j + 1) + "'>");
+                        if (j == 2) {
+                            for (let k = 1; k <= tue; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Eew8oAsRSVpGj0s2HS21o18BXYAQRzEwNfWE7HNSleFK-w?e=pUXYzG" class="btn">13:00~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="tue1730.html" class="btn">17:30~18:45課程資訊</a><br><br>`);
+                                } else if (k == 3) {
+                                    document.write(`<a href="tue1845.html" class="btn">18:45~20:00課程資訊</a><br><br>`);
+                                } else {
+                                    document.write(`<a href="tue2000.html" class="btn">20:00~21:15課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 3) {
+                            for (let k = 1; k <= wed; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="wed1930.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="wed1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 4) {
+                            for (let k = 1; k <= thu; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="thu1330.html" target="view_window" class="btn">13:30~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="thu1800.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
+                                } else if (k == 3) {
+                                    document.write(`<a href="thu1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 5) {
+                            for (let k = 1; k <= fri; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="fri1330.html" class="btn">13:30~15:00課程資訊</a><br><br>`);
+                                } else if (k == 2) {
+                                    document.write(`<a href="fri1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
+                                }
+                            }
+                        } else if (j == 6) {
+                            for (let k = 1; k <= sat; k++) {
+                                if (k == 1) {
+                                    document.write(`<a href="sat1500.html" class="btn">15:00~16:30課程資訊</a><br><br>`);
+                                }
+                            }
+                        }
+                        document.write("</td>");
+                    }
+                    document.write("</tr>");
+                }
+            </script>
+        </tbody>
+    </table>
+</body>
+</html>
