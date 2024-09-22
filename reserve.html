@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full Image without Cropping</title>
+    <title>1</title>
     <style>
         html, body {
             margin: 0;
@@ -47,7 +47,7 @@
 
         .btn {
             display: inline-block;
-            padding: 5px 5px;
+            padding: 1px 1px;
             background-color: #55585b;
             color: white;
             border: none;
@@ -55,7 +55,7 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
-            font-size: 1.0em;
+            font-size: 0.1em;
         }
 
         /* 其他內容區域 */
@@ -81,13 +81,14 @@
 
         /* 表格樣式 */
         #course {
-            position: absolute; /* 保持絕對定位 */
-            bottom: 0; /* 將表格固定在視窗底部 */
-            left: 0; /* 左邊對齊 */
-            width: 100%; /* 設定寬度為100% */
+            position: absolute; /* Keep absolute positioning */
+            top: 82%; /* Adjust as needed */
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 80%; /* Change to 90% for better responsiveness */
+            max-width: 300px; 
             background-color: rgba(132, 131, 131, 0.6); 
             border-collapse: collapse; 
-            margin: 0; /* 去除默認的邊距 */
         }
 
         #course th, #course td {
@@ -95,6 +96,7 @@
             text-align: center; /* 文字置中 */
             border: 1px solid #ccc; /* 單元格邊框 */
             color: #ffffff;
+            font-size: 0.6em;
             /* font-family: "DFKai-SB", "BiauKai", "標楷體", sans-serif; 設定字體 */
         }
 
