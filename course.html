@@ -4,81 +4,208 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Table Example</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        
+
+        .cover h1, .cover h2 {
+            position: relative;
+            color: white;
+        }
+
+        .cover h1 {
+            font-size: 3em;
+        }
+
+        .cover h2 {
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 3px 3px; /* 調整內邊距 */
+            background-color: #55585b;
+            color: white;
+            border: none;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.0em; /* 設定字體大小 */
+            width: auto; /* 自適應寬度 */
+            height: auto; /* 自適應高度 */
+            min-width: 5px; /* 可選：設定最小寬度 */
+        }
+
+        /* 其他內容區域 */
+        .content {
+            padding: 20px;
+            background-color: #f5f5f5;
+            flex: 1;
+            display: flex;
+            justify-content: center; /* 使表格水平居中 */
+        }
+
+        /* 固定在視窗底部的 Facebook 圖片和連結 */
+        .footer {
+            position: fixed;
+            top: 10px; /* 距離視窗底部的距離 */
+            left: 50%;
+            transform: translateX(-50%); /* 讓圖案在水平居中 */
+            text-align: center;
+        }
+
+        .footer img {
+            width: 30px; /* 調整圖片大小 */
+            height: auto;
+        }
+
+        /* 表格樣式 */
+        #course {
+            width: 90%; /* 設定表格寬度 */
+            max-width: 600px; /* 設定最大寬度 */
+            background-color: rgba(132, 131, 131, 0.6); 
+            border-collapse: collapse;
+        }
+
+        #course th, #course td {
+            padding: 1px; /* 調整單元格內邊距 */
+            text-align: center; /* 文字置中 */
+            border: 1px solid #ccc; /* 單元格邊框 */
+            color: #ffffff;
+            font-size: 0.6em;
+            /* font-family: "DFKai-SB", "BiauKai", "標楷體", sans-serif; 設定字體 */
+        }
+
+        /* RWD樣式 */
+        @media (max-width: 768px) {
+            #course {
+                width: 95%; /* Adjust for smaller screens */
+            }
+            .cover h1 {
+                font-size: 2.5em;
+            }
+            .cover h2 {
+                font-size: 1.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover h1 {
+                font-size: 2em;
+            }
+            .cover h2 {
+                font-size: 1.5em;
+            }
+            .btn {
+                padding: 10px 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
 </head>
 <body>
-    <table id="course">
-        <thead>
-            <tr>
-                <th data-label="星期二">星期二</th>
-                <th data-label="星期三">星期三</th>
-                <th data-label="星期四">星期四</th>
-                <th data-label="星期五">星期五</th>
-                <th data-label="星期六">星期六</th>
-            </tr>
-        </thead>
-        <tbody>
-            <script>
-                const tue = 4;
-                const wed = 2;
-                const thu = 3;
-                const fri = 2;
-                const sat = 1;
+    <!-- 封面區域 -->
+    <div class="cover">
+        <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
+    </div>
 
-                for (let i = 1; i <= 1; i++) {
-                    document.write("<tr>");
-                    for (let j = 2; j <= 6; j++) {
-                        document.write("<td data-label='星期" + (j + 1) + "'>");
-                        if (j == 2) {
-                            for (let k = 1; k <= tue; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Eew8oAsRSVpGj0s2HS21o18BXYAQRzEwNfWE7HNSleFK-w?e=pUXYzG" class="btn">13:00~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="tue1730.html" class="btn">17:30~18:45課程資訊</a><br><br>`);
-                                } else if (k == 3) {
-                                    document.write(`<a href="tue1845.html" class="btn">18:45~20:00課程資訊</a><br><br>`);
-                                } else {
-                                    document.write(`<a href="tue2000.html" class="btn">20:00~21:15課程資訊</a><br><br>`);
+    <!-- 固定在視窗底部的 Facebook 圖片和連結 -->
+    <div class="footer">
+        <a href="https://www.facebook.com/profile.php?id=100063485274163&locale=zh_TW" target="_blank">
+            <img src="fb.png" alt="Facebook">
+        </a>
+        <a href="https://lin.ee/fNUdjbG" target="_blank">
+            <img src="LINE_logo.svg.png" alt="LINE">
+        </a>
+    </div>
+
+    <!-- 內容區域 -->
+    <div class="content">
+        <!-- 表格 -->
+        <table id="course">
+            <thead>
+                <tr>
+                    <th data-label="星期二">星期二</th>
+                    <th data-label="星期三">星期三</th>
+                    <th data-label="星期四">星期四</th>
+                    <th data-label="星期五">星期五</th>
+                    <th data-label="星期六">星期六</th>
+                </tr>
+            </thead>
+            <tbody>
+                <script>
+                    const tue = 4;
+                    const wed = 2;
+                    const thu = 3;
+                    const fri = 2;
+                    const sat = 1;
+
+                    for (let i = 1; i <= 1; i++) {
+                        document.write("<tr>");
+                        for (let j = 2; j <= 6; j++) {
+                            document.write("<td data-label='星期" + (j + 1) + "'>");
+                            if (j == 2) {
+                                for (let k = 1; k <= tue; k++) {
+                                    if (k == 1) {
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Ec2hjI1-O-FFjPVqqqTkJH0BtTFbxGlNEcKw1e5BZo3UfA?e=Wz0WuL" class="btn">13:00~15:00</a><br><br>');
+                                    } else if (k == 2) {
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EXgdRlJn8uxAnaHrgE_AzhMBy9XF4XP5BS0XvCosWNGkmg?e=OhD2HI" class="btn">17:30~18:45</a><br><br>');
+                                    } else if (k == 3) {
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EQ11vLpB0s9BjDaUPWIvnVUBPtrv437JQG9pfFN02nI-0g?e=kvH9UZ" class="btn">18:45~20:00</a><br><br>');
+                                    } else {
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EfUuDXoXthhIoe6RUVHodUYBRjdfBoVIY8Hiei9Z9M3pUg?e=d5FekW" class="btn">20:00~21:15</a><br><br>');
+                                    }
+                                }
+                            } else if (j == 3) {
+                                for (let k = 1; k <= wed; k++) {
+                                    if (k == 1) {
+                                        document.write('<a href="wed1930.html" class="btn">18:00~19:30</a><br><br>');
+                                    } else if (k == 2) {
+                                        document.write('<a href="wed1930.html" class="btn">19:30~21:00</a><br><br>');
+                                    }
+                                }
+                            } else if (j == 4) {
+                                for (let k = 1; k <= thu; k++) {
+                                    if (k == 1) {
+                                        document.write('<a href="thu1330.html" target="view_window" class="btn">13:30~15:00</a><br><br>');
+                                    } else if (k == 2) {
+                                        document.write('<a href="thu1800.html" class="btn">18:00~19:30</a><br><br>');
+                                    } else if (k == 3) {
+                                        document.write('<a href="thu1930.html" class="btn">19:30~21:00</a><br><br>');
+                                    }
+                                }
+                            } else if (j == 5) {
+                                for (let k = 1; k <= fri; k++) {
+                                    if (k == 1) {
+                                        document.write('<a href="fri1330.html" class="btn">13:30~15:00</a><br><br>');
+                                    } else if (k == 2) {
+                                        document.write('<a href="fri1930.html" class="btn">19:30~21:00</a><br><br>');
+                                    }
+                                }
+                            } else if (j == 6) {
+                                for (let k = 1; k <= sat; k++) {
+                                    if (k == 1) {
+                                        document.write('<a href="sat1500.html" class="btn">15:00~16:30</a><br><br>');
+                                    }
                                 }
                             }
-                        } else if (j == 3) {
-                            for (let k = 1; k <= wed; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="wed1930.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="wed1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 4) {
-                            for (let k = 1; k <= thu; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="thu1330.html" target="view_window" class="btn">13:30~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="thu1800.html" class="btn">18:00~19:30課程資訊</a><br><br>`);
-                                } else if (k == 3) {
-                                    document.write(`<a href="thu1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 5) {
-                            for (let k = 1; k <= fri; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="fri1330.html" class="btn">13:30~15:00課程資訊</a><br><br>`);
-                                } else if (k == 2) {
-                                    document.write(`<a href="fri1930.html" class="btn">19:30~21:00課程資訊</a><br><br>`);
-                                }
-                            }
-                        } else if (j == 6) {
-                            for (let k = 1; k <= sat; k++) {
-                                if (k == 1) {
-                                    document.write(`<a href="sat1500.html" class="btn">15:00~16:30課程資訊</a><br><br>`);
-                                }
-                            }
+                            document.write("</td>");
                         }
-                        document.write("</td>");
+                        document.write("</tr>");
                     }
-                    document.write("</tr>");
-                }
-            </script>
-        </tbody>
-    </table>
+                </script>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
