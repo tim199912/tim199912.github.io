@@ -17,44 +17,39 @@
         /* 主內容區域（不包含 footer） */
         .content {
             flex: 1; /* 使主內容區域擴展，將 footer 推到頁面底部 */
+            display: flex; /* 確保內容區域能夠顯示為 flex 盒子 */
+            flex-direction: column; /* 垂直排列 */
+            justify-content: center; /* 垂直置中內容 */
         }
 
         .cover {
-            text-align: center;
-            background-color: #e0e0e0;
             position: relative;
-            height: 100vh; /* 調整封面的高度以適應不同螢幕 */
+            height: 50vh; /* 調整封面的高度以適應不同螢幕 */
+            background-image: url('tsaiwang.png');
+            background-size: cover; /* 讓圖片完全覆蓋 */
+            background-position: center; /* 中心顯示圖片 */
             overflow: hidden;
-        }
-
-        .cover img {
-            width: 100%;
-            height:max-content;
-            position: absolute;
-            top: 0;
-            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* 垂直置中 */
+            color: white;
+            text-align: center;
         }
 
         .cover h1 {
-            font-size: 2.5em;
-            position: relative;
+            font-size: 3em; /* 調整標題字體大小 */
             margin: 0;
-            padding-top: 20%;
-            color: white;
-            z-index: 1;
         }
 
         .cover h2 {
-            font-size: 1.5em;
-            color: white;
+            font-size: 2em; /* 調整按鈕字體大小 */
             margin: 20px 0;
-            z-index: 1;
-            position: relative;
         }
 
         .btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px; /* 增加按鈕內邊距 */
             background-color: #818992;
             color: white;
             border: none;
@@ -62,43 +57,44 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
+            font-size: 1.2em; /* 增加按鈕字體大小 */
         }
 
         .footer {
             text-align: center;
             background-color: #e0e0e0;
-            padding: 0px;
+            padding: 20px;
             position: relative;
             bottom: 0;
             width: 100%;
         }
 
         .line-icon {
-            width: 30px;
+            width: 40px;
             height: auto;
-            margin: 0 0px;
+            margin: 0 10px;
         }
 
         /* RWD樣式 */
         @media (max-width: 768px) {
             .cover h1 {
-                font-size: 2em;
+                font-size: 2.5em; /* 中等螢幕標題大小 */
             }
             .cover h2 {
-                font-size: 1.2em;
+                font-size: 1.8em; /* 中等螢幕按鈕大小 */
             }
         }
 
         @media (max-width: 480px) {
             .cover h1 {
-                font-size: 1.5em;
+                font-size: 2em; /* 小螢幕標題大小 */
             }
             .cover h2 {
-                font-size: 1em;
+                font-size: 1.5em; /* 小螢幕按鈕大小 */
             }
             .btn {
-                padding: 8px 15px;
-                font-size: 0.9em;
+                padding: 10px 20px; /* 小螢幕按鈕內邊距 */
+                font-size: 1em; /* 小螢幕按鈕字體大小 */
             }
             .line-icon {
                 width: 30px;
@@ -111,7 +107,6 @@
     <!-- 主要內容區域 -->
     <div class="content">
         <div class="cover">
-            <img src="tsaiwang.png" alt="Cover Image">
             <h1>HEXAGON STUDIO<br>室內功率訓練教室</h1>
             <!-- 新增的按鈕 -->
             <h2><a href="course.html" class="btn">查看課程資訊</a></h2>
