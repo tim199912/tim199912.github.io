@@ -14,8 +14,8 @@
             text-align: center;
             background-color: #e0e0e0;
             position: relative;
-            height: 1500px;
-            overflow: hidden; /* Ensures that the image does not overflow */
+            height: 50vh; /* 調整封面的高度以適應不同螢幕 */
+            overflow: hidden;
         }
         .cover img {
             width: 100%;
@@ -24,12 +24,8 @@
             top: 0;
             left: 0;
         }
-        .cover h1, .cover p {
-            position: fixed;
-            color: white; /* Makes the text visible over the image */
-        }
         .cover h1 {
-            font-size: 3em;
+            font-size: 2.5em; /* 適應不同大小的螢幕 */
             top: 20%;
             width: 100%;
             margin: 0;
@@ -37,6 +33,8 @@
             font-family: 'Arial', sans-serif;
             font-style: italic;
             font-weight: bold;
+            position: relative;
+            color: white;
         }
         table {
             width: 100%;
@@ -46,6 +44,7 @@
             border: 1px solid black;
             padding: 10px;
             text-align: center;
+            font-size: 1em; /* 調整字體大小以適應不同螢幕 */
         }
         th {
             background-color: #f2f2f2;
@@ -53,16 +52,11 @@
         .footer {
             text-align: center;
             background-color: #e0e0e0;
-            position: relative;
-            height: auto;
-            overflow: hidden; /* Ensures that the image does not overflow */
-        }
-        .footer p {
-            margin: 20px 0;
+            padding: 20px;
         }
         .line-icon {
             width: 40px;
-            height: auto; /* 自动按比例调整高度 */
+            height: auto;
         }
         .btn {
             display: inline-block;
@@ -75,6 +69,50 @@
             text-align: center;
             cursor: pointer;
             border-radius: 5px;
+            width: 100%; /* 讓按鈕自適應寬度 */
+            box-sizing: border-box;
+        }
+
+        /* 媒體查詢部分 */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 1.8em; /* 調整小螢幕的字體大小 */
+            }
+            th, td {
+                font-size: 0.9em; /* 調整表格字體 */
+                padding: 8px;
+            }
+            .btn {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            th, td {
+                display: block;
+                text-align: right;
+                position: relative;
+                padding-left: 50%;
+                font-size: 0.8em;
+            }
+            th::before, td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 10px;
+                text-align: left;
+                font-weight: bold;
+                background-color: #f2f2f2;
+            }
+            .btn {
+                padding: 10px;
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -87,16 +125,15 @@
     <table>
         <thead>
             <tr>
-                <th>星期二</th>
-                <th>星期三</th>
-                <th>星期四</th>
-                <th>星期五</th>
-                <th>星期六</th>
+                <th data-label="星期二">星期二</th>
+                <th data-label="星期三">星期三</th>
+                <th data-label="星期四">星期四</th>
+                <th data-label="星期五">星期五</th>
+                <th data-label="星期六">星期六</th>
             </tr>
         </thead>
         <tbody>
-            <!-- 使用 JavaScript 迴圈生成 6 行，每行 8 列 -->
-            <!-- JavaScript 部分 -->
+            <!-- 使用 JavaScript 迴圈生成表格內容 -->
             <script>
                 const tue = 4;
                 const wed = 2;
@@ -107,12 +144,11 @@
                 for (let i = 1; i <= 1; i++) {
                     document.write("<tr>");
                     for (let j = 2; j <= 6; j++) {
-                        document.write("<td>");
+                        document.write("<td data-label='星期" + (j + 1) + "'>");
                         if (j == 2) {
                             for (let k = 1; k <= tue; k++) {
                                 if (k == 1) {
-                                    document.write(`<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Eew8oAsRSVpGj0s2HS21o18BXYAQRzEwNfWE7HNSleFK-w?e=pUXYzG" class="btn">13:00~15:00課程資</a><br><br>`);
-
+                                    document.write(`<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Eew8oAsRSVpGj0s2HS21o18BXYAQRzEwNfWE7HNSleFK-w?e=pUXYzG" class="btn">13:00~15:00課程資訊</a><br><br>`);
                                 } else if (k == 2) {
                                     document.write(`<a href="tue1730.html" class="btn">17:30~18:45課程資訊</a><br><br>`);
                                 } else if (k == 3) {
@@ -161,6 +197,7 @@
             </script>
         </tbody>
     </table>
+
     <div class="footer">
         <p>聯絡我們</p>
         <img class="line-icon" src="LINE_logo.svg.png" alt="LINE Logo">
