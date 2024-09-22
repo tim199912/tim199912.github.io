@@ -81,13 +81,14 @@
 
         /* 表格樣式 */
         #course {
-            position: absolute; /* 使表格絕對定位 */
-            top: 82%; /* 垂直居中 */
-            left: 50%; /* 水平居中 */
-            transform: translate(-50%, -50%); /* 調整位置，使其中心對齊 */
-            width: 35% ; /* 設定表格寬度為80%或100%以適合圖片 */
-            background-color: rgba(132, 131, 131, 0.6); /* 背景顏色，帶透明度以顯示圖片 */
-            border-collapse: collapse; /* 確保邊框不重疊 */
+            position: absolute; /* Keep absolute positioning */
+            top: 82%; /* Adjust as needed */
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 90%; /* Change to 90% for better responsiveness */
+            max-width: 600px; /* Set a maximum width */
+            background-color: rgba(132, 131, 131, 0.6); 
+            border-collapse: collapse; 
         }
 
         #course th, #course td {
@@ -100,6 +101,9 @@
 
         /* RWD樣式 */
         @media (max-width: 768px) {
+            #course {
+                width: 95%; /* Adjust for smaller screens */
+            }
             .cover h1 {
                 font-size: 2.5em;
             }
@@ -157,11 +161,11 @@
                                     if (k == 1) {
                                         document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/Ec2hjI1-O-FFjPVqqqTkJH0BtTFbxGlNEcKw1e5BZo3UfA?e=Wz0WuL" class="btn">13:00~15:00</a><br><br>');
                                     } else if (k == 2) {
-                                        document.write('<a href="tue1730.html" class="btn">17:30~18:45</a><br><br>');
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EXgdRlJn8uxAnaHrgE_AzhMBy9XF4XP5BS0XvCosWNGkmg?e=OhD2HI" class="btn">17:30~18:45</a><br><br>');
                                     } else if (k == 3) {
-                                        document.write('<a href="tue1845.html" class="btn">18:45~20:00</a><br><br>');
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EQ11vLpB0s9BjDaUPWIvnVUBPtrv437JQG9pfFN02nI-0g?e=kvH9UZ" class="btn">18:45~20:00</a><br><br>');
                                     } else {
-                                        document.write('<a href="tue2000.html" class="btn">20:00~21:15</a><br><br>');
+                                        document.write('<a href="https://nkusto365-my.sharepoint.com/:x:/g/personal/f111181105_office365_nkust_edu_tw/EfUuDXoXthhIoe6RUVHodUYBRjdfBoVIY8Hiei9Z9M3pUg?e=d5FekW" class="btn">20:00~21:15</a><br><br>');
                                     }
                                 }
                             } else if (j == 3) {
