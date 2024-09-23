@@ -70,18 +70,21 @@
             justify-content: center; /* 使表格水平居中 */
         }
 
-        /* 固定在視窗底部的 Facebook 圖片和連結 */
+        /* 固定在視窗右側並垂直置中的 Facebook 和 LINE 圖片 */
         .footer {
             position: fixed;
-            top: 10px; /* 距離視窗底部的距離 */
-            left: 50%;
-            transform: translateX(-50%); /* 讓圖案在水平居中 */
-            text-align: center;
+            top: 50%; /* 垂直置中 */
+            right: 10px; /* 距離視窗右側的距離 */
+            transform: translateY(-50%); /* 垂直置中的微調 */
+            display: flex;
+            flex-direction: column; /* 垂直排列 */
+            align-items: center; /* 水平居中 */
         }
 
         .footer img {
             width: 30px; /* 調整圖片大小 */
             height: auto;
+            margin: 10px 0; /* 上下間距 */
         }
 
         /* 表格樣式 */
