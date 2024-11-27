@@ -45,6 +45,37 @@
             margin-top: 20px;
         }
 
+        /* 封面區域 */
+        .main {
+            position: relative;
+            min-height: 100vh; /* 確保封面至少覆蓋一個視窗高度 */
+            background-image: url('race.png');
+            background-size: contain; /* 圖片保持完整顯示且不裁切 */
+            background-position: top center; /* 圖片頂部對齊視窗頂部 */
+            background-repeat: no-repeat;
+            background-color: #ffffff; /* 如果圖片沒有完全覆蓋，使用黑色背景 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .main h1, .main h2 {
+            position: relative;
+            color: white;
+        }
+
+        .main h1 {
+            font-size: 3em;
+        }
+
+        .main h2 {
+            font-size: 1em;
+            margin-top: 20px;
+        }
+
         .btn {
             display: inline-block;
             padding: 3px 3px; /* 調整內邊距 */
@@ -116,6 +147,12 @@
             .cover h2 {
                 font-size: 1.8em;
             }
+            .main h1 {
+                font-size: 2.5em;
+            }
+            .main h2 {
+                font-size: 1.8em;
+            }
         }
 
         @media (max-width: 480px) {
@@ -123,6 +160,12 @@
                 font-size: 2em;
             }
             .cover h2 {
+                font-size: 1.5em;
+            }
+            .main h1 {
+                font-size: 2em;
+            }
+            .main h2 {
                 font-size: 1.5em;
             }
             .btn {
@@ -139,8 +182,8 @@
         <h2><a href="course.html" class="btn">查看課程資訊</a></h2>
     </div>
 
-    <div class="content">
-        <h1>活動賽事報名區</h1>  
+    <div class="main">
+        <h1></h1>  
     </div> 
 
     <!-- 固定在視窗底部的 Facebook 圖片和連結 -->
